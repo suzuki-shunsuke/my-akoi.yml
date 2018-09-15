@@ -1,0 +1,58 @@
+---
+# akoi - binary version control system
+# https://github.com/suzuki-shunsuke/akoi
+bin_path: $HOME/bin/{{.Name}}-{{.Version}}
+link_path: $HOME/bin/{{.Name}}
+packages:
+  akoi:
+    url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
+    version: 1.0.0
+    files:
+    - name: akoi
+      archive: akoi
+  jq:
+    url: https://github.com/stedolan/jq/releases/download/jq-{{.Version}}/jq-osx-amd64
+    version: 1.5
+    archive_type: unarchived
+    files:
+    - name: jq
+  gria:
+    url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
+    version: 0.2.1
+    files:
+    - name: gria
+      archive: gria
+  git-rm-branch:
+    url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
+    version: 1.0.5
+    files:
+    - name: git-rm-branch
+      archive: git-rm-branch
+  go-gencfg:
+    url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
+    version: 0.2.3
+    files:
+    - name: gencfg
+      archive: gencfg
+      #   go-swagger:
+      #     url: https://github.com/go-swagger/go-swagger/releases/download/{{.Version}}/swagger_darwin_amd64
+      #     version: 0.16.0
+      #     archive_type: unarchived
+      #     files:
+      #     - name: swagger
+  terraform-provider-graylog:
+    url: https://github.com/suzuki-shunsuke/go-graylog/releases/download/v{{.Version}}/{{.Name}}_v{{.Version}}_darwin_amd64.gz
+    version: 0.7.0
+    archive_type: Gzip
+    files:
+    - name: terraform-provider-graylog
+      archive: terraform-provider-graylog
+      bin_path: $HOME/.terraform.d/plugins/{{.Name}}_{{.Version}}
+      link_path: $HOME/.terraform.d/plugins/{{.Name}}
+  graylog-mock-server:
+    url: https://github.com/suzuki-shunsuke/go-graylog/releases/download/v{{.Version}}/{{.Name}}_v{{.Version}}_darwin_amd64.gz
+    version: 0.7.0
+    archive_type: Gzip
+    files:
+    - name: graylog-mock-server
+      archive: graylog-mock-server
