@@ -7,7 +7,7 @@
 
 ```
 $ git clone https://github.com/suzuki-shunsuke/my-akoi.yml
-$ ln -s $PWD/my-akoi.yml ~/.akoi.yml
+$ ln -s $PWD/my-akoi.yml/akoi.yml ~/.akoi.yml
 $ export AKOI_CONFIG_PATH=$HOME/.akoi.yml
 $ akoi install
 ```
