@@ -6,7 +6,7 @@ link_path: $HOME/bin/{{.Name}}
 packages:
   akoi:
     url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
-    version: 1.0.0
+    version: 1.1.0
     files:
     - name: akoi
       archive: akoi
@@ -30,7 +30,7 @@ packages:
       archive: git-rm-branch
   go-gencfg:
     url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
-    version: 0.2.3
+    version: 0.3.0
     files:
     - name: gencfg
       archive: gencfg
