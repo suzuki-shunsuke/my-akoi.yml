@@ -4,9 +4,70 @@
 bin_path: $HOME/bin/{{.Name}}-{{.Version}}
 link_path: $HOME/bin/{{.Name}}
 packages:
+  #   node_exporter:
+  #     url: https://github.com/prometheus/node_exporter/releases/download/{{.Version}}/node_exporter-{{.Version}}.darwin-amd64.tar.gz
+  #     version: 0.16.0
+  #     files:
+  #     - name: node_exporter
+  #       archive: node_exporter-{{.Version}}.darwin-amd64/node_exporter
+  rancher:
+    url: https://github.com/rancher/cli/releases/download/v{{.Version}}/rancher-darwin-amd64-v{{.Version}}.tar.gz
+    version: 2.2.0-rc15
+    files:
+    - name: rancher
+      archive: rancher-v{{.Version}}/rancher
+  golangci-lint:
+    url: https://github.com/golangci/golangci-lint/releases/download/v{{.Version}}/golangci-lint-{{.Version}}-darwin-amd64.tar.gz
+    version: 1.15.0
+    files:
+    - name: golangci-lint
+      archive: golangci-lint-{{.Version}}-darwin-amd64/golangci-lint
+  protoc:
+    url: "https://github.com/protocolbuffers/protobuf/releases/download/v{{.Version}}/protoc-{{.Version}}-osx-x86_64.zip"
+    version: 3.6.1
+    files:
+    - name: protoc
+      archive: bin/protoc
+  istio:
+    url: "https://github.com/istio/istio/releases/download/{{.Version}}/istio-{{.Version}}-osx.tar.gz"
+    version: 1.0.5
+    files:
+    - name: istioctl
+      archive: "istio-{{.Version}}/bin/istioctl"
+  xurls:
+    url: "https://github.com/mvdan/xurls/releases/download/v{{.Version}}/xurls_v{{.Version}}_darwin_amd64"
+    version: 2.0.0
+    archive_type: unarchived
+    files:
+    - name: xurls
+  consul:
+    url: "https://releases.hashicorp.com/consul/{{.Version}}/consul_{{.Version}}_darwin_amd64.zip"
+    version: 1.2.1
+    files:
+    - name: consul
+      archive: consul
+  drone-cli:
+    url: https://github.com/drone/{{.Name}}/releases/download/v{{.Version}}/drone_darwin_amd64.tar.gz
+    # version: 1.0.1
+    version: 0.8.6
+    files:
+    - name: drone
+      archive: drone
+  gomic:
+    url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
+    version: 0.5.2
+    files:
+    - name: gomic
+      archive: gomic
+  durl:
+    url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
+    version: 0.1.1-2
+    files:
+    - name: durl
+      archive: durl
   akoi:
     url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
-    version: 1.1.0
+    version: 1.3.0
     files:
     - name: akoi
       archive: akoi
@@ -16,6 +77,19 @@ packages:
     archive_type: unarchived
     files:
     - name: jq
+  kustomize:
+    url: https://github.com/kubernetes-sigs/kustomize/releases/download/v{{.Version}}/kustomize_{{.Version}}_darwin_amd64
+    version: 1.0.8
+    archive_type: unarchived
+    files:
+    - name: kustomize
+  go-swagger:
+    url: https://github.com/go-swagger/go-swagger/releases/download/{{.Version}}/swagger_darwin_amd64
+    version: 0.16.0
+    archive_type: unarchived
+    files:
+    - name: swagger
+      archive: swagger_darwin_amd64
   gria:
     url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
     version: 0.2.1
@@ -30,7 +104,7 @@ packages:
       archive: git-rm-branch
   go-gencfg:
     url: https://github.com/suzuki-shunsuke/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}_{{.Version}}_darwin_amd64.tar.gz
-    version: 0.3.0
+    version: 2.0.0
     files:
     - name: gencfg
       archive: gencfg
@@ -42,17 +116,75 @@ packages:
       #     - name: swagger
   terraform-provider-graylog:
     url: https://github.com/suzuki-shunsuke/go-graylog/releases/download/v{{.Version}}/{{.Name}}_v{{.Version}}_darwin_amd64.gz
-    version: 0.7.0
+    version: 1.4.0
     archive_type: Gzip
     files:
     - name: terraform-provider-graylog
       archive: terraform-provider-graylog
-      bin_path: $HOME/.terraform.d/plugins/{{.Name}}_{{.Version}}
+      bin_path: $HOME/bin/{{.Name}}_{{.Version}}
       link_path: $HOME/.terraform.d/plugins/{{.Name}}
   graylog-mock-server:
     url: https://github.com/suzuki-shunsuke/go-graylog/releases/download/v{{.Version}}/{{.Name}}_v{{.Version}}_darwin_amd64.gz
-    version: 0.7.0
+    version: 1.4.0
     archive_type: Gzip
     files:
     - name: graylog-mock-server
       archive: graylog-mock-server
+  gometalinter:
+    url: https://github.com/alecthomas/{{.Name}}/releases/download/v{{.Version}}/{{.Name}}-{{.Version}}-darwin-amd64.tar.gz
+    version: 3.0.0
+    files:
+    - name: gometalinter
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: gocyclo
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: nakedret
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: misspel
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: gosec
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: golint
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: ineffassign
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: goconst
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: errcheck
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: mailgned
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: unconvert
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: dupl
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: structcheck
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: varcheck
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: safesql
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: deadcode
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: lll
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: goimports
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: gotype
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+      #     - name: gosimple
+      #       archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+      #     - name: megacheck
+      #       archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: staticcheck
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+      #     - name: unused
+      #       archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: interfacer
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: unparam
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: gochecknoinits
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
+    - name: gochecknoglobals
+      archive: "gometalinter-{{.Version}}-darwin-amd64/{{.Name}}"
